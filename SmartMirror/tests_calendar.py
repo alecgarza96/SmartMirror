@@ -1,1 +1,1 @@
-from SmartMirrorBackup.SmartMirror import Calendar
+from Calendar import GoogleCalendar
