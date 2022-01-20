@@ -13,7 +13,7 @@ from googleapiclient.errors import HttpError
 class GoogleCalendar():
 
     def __init__(self):
-        self.creds = None
+        self.credentials = None
         self.events = None
         self.SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
@@ -27,10 +27,10 @@ class GoogleCalendar():
         """
         if os.path.exists(TOKEN):
             #What does Credentials do?
-            self.creds = Credentials.from_authorized_user_file(TOKEN, self.SCOPES)
+            self.credentials = Credentials.from_authorized_user_file(TOKEN, self.SCOPES)
 
     def _userlogin(self):
-        if not self.creds or not self.creds.valid:
+        if not self.credentials or not self.credentials.valid:
             if self._checkCredentialsExpired():
                 self._refreshCredentials()
             else:
@@ -39,23 +39,23 @@ class GoogleCalendar():
     
     def _checkCredentialsExpired(self):
         #review docs
-        return self.creds and self.creds.expired and self.creds.refresh_token
+        return self.credentials and self.credentials.expired and self.credentials.refresh_token
 
     def _refreshCredentials(self):
         #review docs
-        self.creds.refresh(Request())
+        self.credentials.refresh(Request())
 
     def _loginPrompt(self):
         flow = InstalledAppFlow.from_client_secrets_file(
             'credentials.json', self.SCOPES)
-        self.creds = flow.run_local_server(port=0)
+        self.credentials = flow.run_local_server(port=0)
 
     def _saveCredentials(self):
         with open('token.json','w') as token:
-            token.write(self.creds.to_json())
+            token.write(self.credentials.to_json())
 
     def _makeRequest(self):
-        service = build('calendar', 'v3', credentials=self.creds)
+        service = build('calendar', 'v3', credentials=self.credentials)
 
         #call the calendar API
         now = datetime.datetime.utcnow().isoformat() + 'Z' #'Z' indicates UTC time
