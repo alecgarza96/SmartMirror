@@ -17,9 +17,9 @@ class GoogleCalendar():
         self.events = None
         self.SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
-    def _getCreds(self):
-        if os.path.exists('token.json'):
-            self.creds = Credentials.from_authorized_user_file('token.json', self.SCOPES)
+    def _getCreds(self, TOKEN):
+        if os.path.exists(TOKEN):
+            self.creds = Credentials.from_authorized_user_file(TOKEN, self.SCOPES)
 
     def _userlogin(self):
         if not self.creds or not self.creds.valid:
