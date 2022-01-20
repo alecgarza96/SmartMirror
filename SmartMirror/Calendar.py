@@ -18,7 +18,15 @@ class GoogleCalendar():
         self.SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
     def _getCreds(self, TOKEN):
+        """
+        Private Function to retreive API credentials token
+        Input: TOKEN path or location
+        Processing: if the path to the toekn exists, then set the credentials attribute to 
+        a Credentials object with the TOKEN passed
+        Output: none
+        """
         if os.path.exists(TOKEN):
+            #What does Credentials do?
             self.creds = Credentials.from_authorized_user_file(TOKEN, self.SCOPES)
 
     def _userlogin(self):
