@@ -6,8 +6,13 @@ TOKEN = '/Users/alecgarza/Desktop/SmartMirrorBackup/cfg/token.json'
 class TestCalendar(unittest.TestCase):
 
 	def test__getCreds(self):
-		result = GoogleCalendar._getCreds('/Users/alecgarza/Desktop/SmartMirrorBackup/cfg/token.json')
-		self.assertIsNotNone(result)
+		cal = GoogleCalendar()
+		cal._getCreds('/Users/alecgarza/Desktop/SmartMirrorBackup/cfg/token.json')
+		self.assertIsNotNone(cal.credentials)
+
+		emptyStringCal = GoogleCalendar()
+		cal._getCreds('')
+		self.assertIsNotNone(emptyStringCal.credentials)
 
 if __name__ == '__main__':
 	unittest.main()
