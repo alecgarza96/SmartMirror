@@ -13,7 +13,6 @@ from googleapiclient.errors import HttpError
 class GoogleCalendar():
 
     def __init__(self):
-        self.credentials = None
         self.events = None
         self.SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
@@ -27,7 +26,8 @@ class GoogleCalendar():
         """
         if os.path.exists(TOKEN):
             #What does Credentials do?
-            self.credentials = Credentials.from_authorized_user_file(TOKEN, self.SCOPES)
+            credentials = Credentials.from_authorized_user_file(TOKEN, self.SCOPES)
+        return credentials
 
     def _userlogin(self):
         if not self.credentials or not self.credentials.valid:
