@@ -20,9 +20,8 @@ class GoogleCalendar():
         """
         Private Function to retreive API credentials token
         Input: TOKEN path or location
-        Processing: if the path to the toekn exists, then set the credentials attribute to 
-        a Credentials object with the TOKEN passed
-        Output: none
+        Processing: gets user credentials utilizing passed token argument
+        Output: returns a credentials object
         """
         if os.path.exists(TOKEN):
             #What does Credentials do?
