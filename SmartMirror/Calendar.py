@@ -37,12 +37,10 @@ class GoogleCalendar():
             self._saveCredentials()
     
     def _checkCredentialsExpired(self, credentials):
-        #review docs for refresh token
         return credentials and credentials.expired and credentials.refresh_token
 
     def _refreshCredentials(self):
-        #review docs
-        self.credentials.refresh(Request())
+        return credentials.refresh(Request())
 
     def _loginPrompt(self):
         flow = InstalledAppFlow.from_client_secrets_file(
