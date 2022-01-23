@@ -1,16 +1,15 @@
+import unittest
 from Calendar import GoogleCalendar
 
 TOKEN = '/Users/alecgarza/Desktop/SmartMirrorBackup/cfg/token.json'
-cal = GoogleCalendar()
 
-print("Unit Testing for GoogleCalendar")
-print("-------------------------------")
+class TestCalendar(unittest.TestCase):
 
-print("Testing: _getCreds()")
-cal._getCreds(TOKEN)
-print("Credentials Found:", cal.credentials)
-print('\n')
+	def test__getCreds(self):
+		result = GoogleCalendar._getCreds('/Users/alecgarza/Desktop/SmartMirrorBackup/cfg/token.json')
+		self.assertIsNotNone(result)
 
-print("Testing: _checkCredentialsExpired()")
-print("Credentials Expiration Status:", cal._checkCredentialsExpired())
-print('\n')
+if __name__ == '__main__':
+	unittest.main()
+
+

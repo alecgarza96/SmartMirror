@@ -38,7 +38,7 @@ class GoogleCalendar():
             self._saveCredentials()
     
     def _checkCredentialsExpired(self):
-        #review docs
+        #review docs for refresh token
         return self.credentials and self.credentials.expired and self.credentials.refresh_token
 
     def _refreshCredentials(self):
