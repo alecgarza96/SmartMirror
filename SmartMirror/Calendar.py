@@ -23,8 +23,8 @@ class GoogleCalendar():
         Processing: gets user credentials utilizing passed token argument
         Output: returns a credentials object
         """
+        credentials = None
         if os.path.exists(TOKEN):
-            #What does Credentials do?
             credentials = Credentials.from_authorized_user_file(TOKEN, self.SCOPES)
         return credentials
 
@@ -36,9 +36,9 @@ class GoogleCalendar():
                 self._loginPrompt()
             self._saveCredentials()
     
-    def _checkCredentialsExpired(self):
+    def _checkCredentialsExpired(self, credentials):
         #review docs for refresh token
-        return self.credentials and self.credentials.expired and self.credentials.refresh_token
+        return credentials and credentials.expired and credentials.refresh_token
 
     def _refreshCredentials(self):
         #review docs
