@@ -8,7 +8,7 @@ class Weather():
 		self._API_KEY = "9cbb8f5c607b163d50f8454ae4af0af5"
 
 	def get_temp(self, city, state):
-		temperatureResponse = "Error: Weather API Connection Issue"
+		temperatureResponse = ' '
 		URL = self._BASE_URL + "q=" + city + "," + state + "&appid=" + self._API_KEY
 		response = requests.get(URL)
 
