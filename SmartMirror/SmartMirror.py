@@ -35,6 +35,9 @@ class SmartMirror(tk.Frame):
 		dateLabel = tk.Label(self, text=self.date, bg='black', fg='white')
 		dateLabel.place(relx=0.1, rely=0.8, relwidth=0.2, relheight=0.1)
 
+		wordLabel = tk.Label(frame, text="Word of the day", bg='black', gh='white')
+		wordLabel.place(relx=0.7, rely=0.8, relwidth=0.2, relheight=0.1)
+
 
 
 root = tk.Tk()
