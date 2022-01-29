@@ -2,7 +2,14 @@ import tkinter as tk
 
 class SmartMirror(tk.Frame):
 
-	def __init__(self,master=None):
+	def __init__(self,
+		         master=None, 
+		         weather=None, 
+		         calendar=None, 
+		         quote=None, 
+		         time=None, 
+		         date=None):
+
 		tk.Frame.__init__(self,master)
 		self.master = master
 		self.place(relwidth=1,relheight=1)
