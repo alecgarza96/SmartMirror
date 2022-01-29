@@ -44,9 +44,3 @@ class SmartMirror(tk.Frame):
 
 
 
-root = tk.Tk()
-canvas = tk.Canvas(root, height=800, width=900)
-canvas.pack()
-
-smartMirror = SmartMirror(root,"98","walk","good job","word of the day","8:30","February 1st")
-root.mainloop()
