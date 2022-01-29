@@ -29,6 +29,9 @@ class SmartMirror(tk.Frame):
 		quoteLabel = tk.Label(self, text=self.quote, bg='black', fg='white')
 		quoteLabel.place(relx=0.7, rely=0.7, relwidth=0.2, relheight=0.1)
 
+		timeLabel = tk.Label(self, text=self.time, bg='black', fg='white')
+		timeLabel.place(relx=0.1, rely=0.7, relwidth=0.2, relheight=0.1)
+
 
 
 root = tk.Tk()
