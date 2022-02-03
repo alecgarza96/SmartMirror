@@ -6,6 +6,13 @@ from SmartMirror.Date import Date
 from SmartMirror.SmartMirror import SmartMirror
 from SmartMirror.Quotes import Quotes
 
+def getQuoteData(quotesLocation):
+	quote = Quotes()
+	quote.getQuotesJson(quotesLocation)
+	quote.setTodaysQuote()
+
+	return quote.getTodaysQuote()
+
 if __name__ == '__main__':
 
 	HEIGHT = 700
@@ -15,22 +22,18 @@ if __name__ == '__main__':
 	city = loc.getCity()
 	state = loc.getState()
 	weather = Weather()
-	quote = Quotes()
-	quote.getQuotesJson('SmartMirror/quotes.json')
-	quote.setTodaysQuote()
+	quote = getQuoteData('SmartMirror/quotes.json')
 
 
 	temperature = weather.get_temp(city,state) + " degrees"
 	weatherReport = weather.get_report(city,state)
 	time = Time().get_time()
 	date = Date().get_date()
-	quoteText = quote.getTodaysQuote()['quote']
-	quoteAuthor = quote.getTodaysQuote()['author']
 
 	root = tk.Tk()
 	canvas = tk.Canvas(root, height=800, width=900)
 	canvas.pack()
-	smartMirror = SmartMirror(root,temperature,quoteText+" - "+quoteAuthor,"word",time,date)
+	smartMirror = SmartMirror(root,temperature,quote['quote']+" - "+quote['author'],"word",time,date)
 	root.mainloop()
 
 
