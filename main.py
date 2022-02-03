@@ -13,6 +13,12 @@ def getQuoteData(quotesLocation):
 
 	return quote.getTodaysQuote()
 
+def setupDisplay():
+	root = tk.Tk()
+	canvas = tk.Canvas(root, height=800, width=900)
+	canvas.pack
+	return root
+
 if __name__ == '__main__':
 
 	HEIGHT = 700
@@ -30,9 +36,7 @@ if __name__ == '__main__':
 	time = Time().get_time()
 	date = Date().get_date()
 
-	root = tk.Tk()
-	canvas = tk.Canvas(root, height=800, width=900)
-	canvas.pack()
+	root = setupDisplay()
 	smartMirror = SmartMirror(root,temperature,quote['quote']+" - "+quote['author'],time,date)
 	root.mainloop()
 
