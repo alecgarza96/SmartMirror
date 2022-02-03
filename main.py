@@ -33,7 +33,7 @@ if __name__ == '__main__':
 	root = tk.Tk()
 	canvas = tk.Canvas(root, height=800, width=900)
 	canvas.pack()
-	smartMirror = SmartMirror(root,temperature,quote['quote']+" - "+quote['author'],"word",time,date)
+	smartMirror = SmartMirror(root,temperature,quote['quote']+" - "+quote['author'],time,date)
 	root.mainloop()
 
 

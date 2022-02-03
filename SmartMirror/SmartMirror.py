@@ -7,7 +7,6 @@ class SmartMirror(tk.Frame):
 		         weather=None, 
 		         calendar=None, 
 		         quote=None, 
-		         word=None,
 		         time=None, 
 		         date=None):
 
@@ -16,7 +15,6 @@ class SmartMirror(tk.Frame):
 		self.weather=weather
 		self.calendar=calendar
 		self.quote=quote
-		self.word = word
 		self.time=time
 		self.date=date
 		self.place(relwidth=1,relheight=1)
@@ -38,9 +36,6 @@ class SmartMirror(tk.Frame):
 
 		dateLabel = tk.Label(self, text=self.date, bg='black', fg='white')
 		dateLabel.place(relx=0.1, rely=0.8, relwidth=0.2, relheight=0.1)
-
-		wordLabel = tk.Label(self, text=self.word, bg='black', fg='white')
-		wordLabel.place(relx=0.7, rely=0.8, relwidth=0.2, relheight=0.1)
 
 
 
