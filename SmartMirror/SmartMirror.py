@@ -32,7 +32,7 @@ class SmartMirror(tk.Frame):
 		timeLabel.place(relx=0.8, rely=0.1, relwidth=0.2, relheight=0.1)
 
 		dateLabel = tk.Label(self, text=self.date, bg='black', fg='white')
-		dateLabel.place(relx=0.8, rely=0.2, relwidth=0.2, relheight=0.1)
+		dateLabel.place(relx=0.65, rely=0.2, relwidth=0.5, relheight=0.1)
 
 		focusHeader = tk.Label(self, text="Focus", bg='black', fg='white')
 		focusHeader.place(relx=0.25, rely=0.1, relwidth=0.5, relheight=0.5)

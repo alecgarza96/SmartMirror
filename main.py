@@ -13,8 +13,6 @@ def getQuoteData(quotesLocation):
 
 	return quote.getTodaysQuote()
 
-
-
 if __name__ == '__main__':
 
 	HEIGHT = 700

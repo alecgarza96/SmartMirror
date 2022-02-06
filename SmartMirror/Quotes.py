@@ -26,7 +26,6 @@ class Quotes():
 		self._setQuote()
 
 	def getTodaysQuote(self):
-
 		return self.quote
 
 
