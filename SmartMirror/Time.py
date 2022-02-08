@@ -16,7 +16,7 @@ class Time():
 		if(self.time[0:2] == "00"):
 			formattedTime = "12"+self.time[2:]
 			self.time = formattedTime
-		else if(int(self.time[0:2]) < 12):
+		elif(int(self.time[0:2]) < 12):
 			self.time = self.time[0:5]
 		else:
 			hour = int(self.time[0:2])-12

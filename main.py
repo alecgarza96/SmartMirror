@@ -13,6 +13,8 @@ def getQuoteData(quotesLocation):
 
 	return quote.getTodaysQuote()
 
+
+
 if __name__ == '__main__':
 
 	HEIGHT = 700
@@ -32,8 +34,18 @@ if __name__ == '__main__':
 
 	root = tk.Tk()
 	canvas = tk.Canvas(root, height=700, width=800)
-	canvas.pack
+	canvas.pack()
 	smartMirror = SmartMirror(root,temperature, quote['quote'],time,date, "Relax")
+	#root.mainloop()
+
+
+	def update():
+		for i in range(10):
+			smartMirror.dateLabel['text'] = "updating " + str(i)
+			root.after(1000, update)
+
+	update()
+
 	root.mainloop()
 
 
